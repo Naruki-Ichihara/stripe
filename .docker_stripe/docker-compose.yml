@@ -1,0 +1,18 @@
+version: '3.9'
+services:
+  stripe:
+    restart: always
+    image: ichiharanaruki/fenics-optimize-academic:0.1.1a
+    container_name: 'stripe'
+    working_dir: '/root/'
+    tty: true
+    volumes:
+    - ../:/workspace
+    shm_size: 4gb
+    ulimits:
+      memlock: -1
+      stack: 67108864
+    environment:
+       - DISPLAY=host.docker.internal:0.0
+    environment:
+      TZ: 'Asia/Tokyo'
